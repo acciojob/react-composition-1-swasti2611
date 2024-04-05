@@ -3,22 +3,22 @@ import React, { useState } from 'react'
 const Tabs = (props) => {
     console.log(props.data)
     const [click,setclick]=useState(false)
-    const [clickData,setData]=useState('')
-    function handleClick(value){
-        setData(value)
+    const [clickData,setData]=useState(0)
+    function handleClick(index){
+        setData(index)
         setclick(!click)
         //console.log(value)
     }
   return (
     <div>
     <ul>
-      {props.data.map((item)=>(
+      {props.data.map((item,index)=>(
         
-            <li onClick={()=>handleClick(item.title)}>{item.title}</li>
+            <li onClick={()=>handleClick(index)}>{item.title}</li>
         
       ))}
       </ul>
-      {click && <div>This is content for {clickData}.</div>}
+      <p>{props.data[clickData].content}</p>
     </div>
   )
 }
