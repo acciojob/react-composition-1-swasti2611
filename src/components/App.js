@@ -1,11 +1,17 @@
 
-import React from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
+import Tabs from "./Tabs";
 
 const App = () => {
+  let obj=[{title:"Tab 1"},
+  {title:"Tab 2"},
+  {title:"Tab 3"}
+          ]
+          const [data,setData]=useState(obj)
   return (
     <div>
-        {/* Do not remove the main div */}
+        <Tabs data={data}/>
     </div>
   )
 }
